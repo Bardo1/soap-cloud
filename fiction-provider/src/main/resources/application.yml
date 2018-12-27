@@ -1,3 +1,11 @@
 server:
-  port: 10000
+  port: 9500
+
+mybatis-plus:
+  mapper-locations: mybatis/**/*Mapper.xml
+  type-aliases-package: org.wzx.cloud.*.entity,org.wzx.soap.*.vo
+
+spring:
+  application:
+    name: fiction-provider
 

@@ -1,11 +1,3 @@
-server:
-  port: 9000
-eureka:
-  instance:
-    appname: eureka-server
-  client:
-    service-url:
-      defaultZone: http://${eureka.instance.appname}:${server.port}
-#    enabled: false
-
-
+spring:
+  application:
+    name: eureka-server
