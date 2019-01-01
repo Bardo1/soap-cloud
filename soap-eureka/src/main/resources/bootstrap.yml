@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      name: soap-eureka
+      profile: dev
+      uri: http://localhost:9100

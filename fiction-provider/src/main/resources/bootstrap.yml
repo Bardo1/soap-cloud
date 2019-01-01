@@ -1,6 +1,0 @@
-spring:
-  cloud:
-    config:
-      name: fiction-provider
-      profile: dev
-      uri: http://localhost:9100

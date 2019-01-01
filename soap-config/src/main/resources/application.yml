@@ -1,0 +1,12 @@
+server:
+    port: 9100
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:///F:/BackEndProject/cloud-config-repo
+  #          uri: https://github.com/wenzxuse/cloud-config-repo.git
+  application:
+    name: soap-config
+

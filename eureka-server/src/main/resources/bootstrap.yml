@@ -1,6 +1,0 @@
-spring:
-  cloud:
-    config:
-      name: eureka-server
-      profile: dev
-      uri: http://localhost:9100
