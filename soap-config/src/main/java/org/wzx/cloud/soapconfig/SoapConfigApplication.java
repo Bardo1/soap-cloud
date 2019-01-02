@@ -1,4 +1,4 @@
-package org.wzx.cloud.configserver;
+package org.wzx.cloud.soapconfig;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

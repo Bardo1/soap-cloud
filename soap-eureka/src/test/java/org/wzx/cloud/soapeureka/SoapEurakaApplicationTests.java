@@ -1,4 +1,4 @@
-package org.wzx.cloud.soapeuraka;
+package org.wzx.cloud.soapeureka;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

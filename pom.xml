@@ -22,7 +22,6 @@
         <module>soap-api</module>
         <module>soap-eureka</module>
         <module>soap-modules</module>
-        <module>soap-modules</module>
     </modules>
 
     <properties>
