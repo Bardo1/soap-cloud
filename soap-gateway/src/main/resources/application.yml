@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: soap-gateway
+#zuul:
+#  routes:
+#    system-service:
+#      path: /system/**
+#      service-Id: system-service
+feign:
+  hystrix:
+    enabled: true

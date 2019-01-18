@@ -8,9 +8,9 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>org.wzx.cloud</groupId>
-    <artifactId>config-server</artifactId>
+    <artifactId>soap-config</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>config-server</name>
+    <name>soap-config</name>
     <description>Demo project for Spring Boot</description>
 
 

@@ -1,4 +1,4 @@
-package entity;
+package org.wzx.cloud.model.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
@@ -11,7 +11,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("sys_fiction")
-public class FictionVO implements Serializable {
+public class FictionDO implements Serializable {
 
     private int id;
     private String title;

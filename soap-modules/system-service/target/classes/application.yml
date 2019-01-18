@@ -1,4 +1,3 @@
 spring:
-  cloud:
-    config:
-      name: system-service
+  application:
+    name: system-service

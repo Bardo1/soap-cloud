@@ -21,6 +21,7 @@
         <module>soap-config</module>
         <module>soap-api</module>
         <module>soap-eureka</module>
+        <module>soap-gateway</module>
         <module>soap-modules</module>
     </modules>
 
@@ -57,9 +58,17 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.netflix.eureka</groupId>
+            <artifactId>eureka-client</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.wzx.cloud.mapper.MenuMapper">
+
+    <select id="listMenuByParentid" parameterType="String" resultType="org.wzx.cloud.model.entity.MenuDO">
+        select t.menuid,t.parentid,t.`name`,t.url,t.descrition,t.typeid,t.seq,t1.url parentid,t1.`name` parentname from
+        sys_menu t,sys_menu t1 where t.parentid = t1.menuid and t.parentid = #{parentid} order by t.seq
+    </select>
+
+</mapper>

@@ -1,4 +1,4 @@
-package org.wzx.cloud.soapeureka;
+package org.wzx.cloud.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

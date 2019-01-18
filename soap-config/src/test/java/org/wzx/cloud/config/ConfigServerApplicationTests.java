@@ -1,4 +1,4 @@
-package org.wzx.cloud.soapconfig;
+package org.wzx.cloud.config;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

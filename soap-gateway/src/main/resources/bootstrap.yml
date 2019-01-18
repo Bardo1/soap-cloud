@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      name: soap-gateway
+      profile: dev
+      uri: http://localhost:9100
