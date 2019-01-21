@@ -13,8 +13,6 @@
     <name>soap-config</name>
     <description>Demo project for Spring Boot</description>
 
-
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>

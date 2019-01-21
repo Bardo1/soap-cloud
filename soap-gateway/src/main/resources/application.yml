@@ -2,9 +2,13 @@ spring:
   application:
     name: soap-gateway
 zuul:
+  ignored-services: "*"
   routes:
     system-service:
-      path: /system/**
+      path: /sysmgt/**
+      service-Id: system-service
+    menu-service:
+      path: /sys/**
       service-Id: system-service
 management:
   endpoints:

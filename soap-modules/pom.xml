@@ -13,10 +13,14 @@
     <packaging>pom</packaging>
     <modules>
         <module>system-service</module>
+        <module>task-service</module>
     </modules>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-eureka-client</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>

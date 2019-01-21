@@ -1,3 +1,30 @@
 spring:
   application:
     name: system-service
+
+feign:
+  hystrix:
+    enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:  ["routes","health"]
+
+#logging:
+#  level:
+#    root: debug
+
+ribbon:
+  eureka:
+    enabled: true
+
+
+eureka:
+  instance:
+    instance-id: system-service
+    preferIpAddress: true
+  client:
+    service-url:
+      defaultZone: http://localhost:9000/eureka/

@@ -8,5 +8,5 @@ public interface SystemService {
 
     void saveConst(Map<String, String> map) throws Exception;
 
-    void refreshMovieList() throws Exception;
+    boolean refreshMovieList() throws Exception;
 }
