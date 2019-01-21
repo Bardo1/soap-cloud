@@ -5,11 +5,10 @@ import lombok.*;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Data
+@Builder
 @ToString
+@NoArgsConstructor
 @TableName("sys_menu")
 public class MenuDO implements Serializable {
     private Integer menuid;

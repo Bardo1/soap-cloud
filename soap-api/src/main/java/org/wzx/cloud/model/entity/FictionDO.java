@@ -5,11 +5,10 @@ import lombok.*;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
+@Data
+@Builder
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 @TableName("sys_fiction")
 public class FictionDO implements Serializable {
 

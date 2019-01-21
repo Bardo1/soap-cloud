@@ -2,11 +2,11 @@ package org.wzx.cloud.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.wzx.cloud.model.vo.R;
 import org.wzx.cloud.service.SystemService;
+
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -15,6 +15,23 @@ public class SystemController {
 
     @Autowired
     private SystemService systemService;
+
+    @RequestMapping
+    public R list() throws Exception {
+        Map<String, String> sysconst = systemService.listConst();
+        return R.ok(sysconst);
+    }
+
+    @PostMapping("/save")
+    public R saveSysConstt(@RequestParam Map<String, String> map) {
+        try {
+            systemService.saveConst(map);
+            systemService.refreshMovieList();
+            return R.ok("保存成功");
+        } catch (Exception e) {
+            return R.error("保存失败");
+        }
+    }
 
     @GetMapping("/refreshMovies")
     public R refreshMovieList() throws Exception {

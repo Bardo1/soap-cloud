@@ -5,11 +5,10 @@ import lombok.*;
 
 import java.io.Serializable;
 
-@Setter
-@Getter
+@Data
+@Builder
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 @TableName("sys_chapter")
 
 public class ChapterDO implements Serializable {
