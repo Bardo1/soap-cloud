@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Data
 @Builder
 @ToString
+@AllArgsConstructor
 @NoArgsConstructor
 @TableName("x_movie_list")
 public class XMovieFileDO implements Serializable {
@@ -19,4 +20,6 @@ public class XMovieFileDO implements Serializable {
     private String url;
     private String type;
     private String parentid;
+    private String aliasname;
+    private String filehash;
 }

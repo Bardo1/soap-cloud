@@ -12,9 +12,11 @@ management:
       exposure:
         include:  ["routes","health"]
 
-#logging:
-#  level:
-#    root: debug
+logging:
+  level:
+    org:
+      wzx:
+        cloud: debug
 
 ribbon:
   eureka:

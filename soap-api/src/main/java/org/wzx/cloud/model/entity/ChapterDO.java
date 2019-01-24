@@ -8,6 +8,7 @@ import java.io.Serializable;
 @Data
 @Builder
 @ToString
+@AllArgsConstructor
 @NoArgsConstructor
 @TableName("sys_chapter")
 

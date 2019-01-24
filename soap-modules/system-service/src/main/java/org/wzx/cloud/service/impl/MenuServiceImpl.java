@@ -2,6 +2,7 @@ package org.wzx.cloud.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.wzx.cloud.mapper.MenuMapper;
 import org.wzx.cloud.model.entity.MenuDO;
@@ -16,6 +17,7 @@ public class MenuServiceImpl implements MenuService {
     private MenuMapper menuMapper;
 
     @Override
+    @Cacheable("listmenu")
     public List<MenuDO> listMenu(String parentid) throws Exception {
         Integer count = menuMapper.selectCount(new QueryWrapper<MenuDO>().eq("menuid", parentid));
         if (count == 0) {

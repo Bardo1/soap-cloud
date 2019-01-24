@@ -3,7 +3,9 @@ package org.wzx.cloud.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.wzx.cloud.mapper.ConstMapper;
@@ -33,6 +35,7 @@ public class SystemTaskServiceImpl implements SystemTaskService {
     }
 
     @Async
+    @Caching(evict = {@CacheEvict("movielist")})
     public void refreshMovieListAsync() {
         try {
             ConstDO constDO = mapper.selectOne(new QueryWrapper<ConstDO>().eq("name", "movieDir"));
@@ -46,7 +49,7 @@ public class SystemTaskServiceImpl implements SystemTaskService {
             if (!root.exists()) {
                 throw new Exception("电影目录错误");
             }
-            XMovieFileDO xfile = XMovieFileDO.builder().name("/").url("/").type("dir").build();
+            XMovieFileDO xfile = XMovieFileDO.builder().name("/").url("/").type("dir").aliasname("/").build();
             xmapper.delete(new QueryWrapper<XMovieFileDO>());
             xmapper.insert(xfile);
             addSubMovieList(root, xfile, movieDir, nginxPrefix);
@@ -73,7 +76,7 @@ public class SystemTaskServiceImpl implements SystemTaskService {
             path = path.replaceAll("\\\\", "/");//相对路径
             if (file.isDirectory()) {
                 XMovieFileDO xfile = XMovieFileDO.builder().name(file.getName()).type("dir").url(nginxPrefix + path)
-                        .parentid(parentdo.getId()).build();
+                        .aliasname(file.getName()).parentid(parentdo.getId()).build();
                 xmapper.insert(xfile);
                 addSubMovieList(file, xfile, movieDir, nginxPrefix);
             } else {
@@ -85,6 +88,7 @@ public class SystemTaskServiceImpl implements SystemTaskService {
                 }
                 xfile.setName(name);
                 xfile.setType(type);
+                xfile.setAliasname(name);
                 xfile.setUrl(nginxPrefix + path);
                 xfile.setParentid(parentdo.getId());
                 xmapper.insert(xfile);
