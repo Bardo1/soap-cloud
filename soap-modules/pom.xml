@@ -14,12 +14,13 @@
     <modules>
         <module>system-service</module>
         <module>task-service</module>
+        <module>movie-service</module>
     </modules>
 
     <dependencies>
         <dependency>
             <groupId>org.wzx.cloud</groupId>
-            <artifactId>soap-cloud-api</artifactId>
+            <artifactId>soap-api</artifactId>
         </dependency>
 
         <dependency>
