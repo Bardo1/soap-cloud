@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.wzx.cloud.movie.mapper.SubtitleMapper">
+
+    <resultMap id="subtitlevo" type="org.wzx.cloud.model.vo.SubtitleVO" />
+
+    <sql id="subtitlevo" >
+        select t.id,t.sentence,t.typeid,t.translation,t.begintime,t.endtime,t1.id rid,t1.seq,t1.mid movieid,t1.note
+        from sys_sentence t,r_movie_sentence t1
+        where t.id = t1.sid
+    </sql>
+
+    <select id="listSubtitleVO" parameterType="String" resultType="org.wzx.cloud.model.vo.SubtitleVO">
+        <include refid="subtitlevo"></include> and t1.mid = #{movieid} order by t1.seq
+    </select>
+</mapper>

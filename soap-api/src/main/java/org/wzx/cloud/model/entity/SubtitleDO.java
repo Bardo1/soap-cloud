@@ -12,16 +12,15 @@ import java.io.Serializable;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@TableName("sys_movies")
-public class MovieDO implements Serializable {
+@TableName("sys_sentence")
+public class SubtitleDO implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
-    private Integer typeid;
-    private Integer parentid;
-    private String name;
-    private String fullname;
-    private String description;
-    private String note;
-    private String seq;
+    private String sentence;
+    private String typeid;
+    private String translation;
+    private Integer beginTime;
+    private Integer endTime;
+
 
 }

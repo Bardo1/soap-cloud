@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.wzx.cloud.model.entity.MovieDO;
 import org.wzx.cloud.model.vo.R;
+import org.wzx.cloud.model.vo.SubtitleVO;
 import org.wzx.cloud.movie.service.MovieService;
+import org.wzx.cloud.movie.service.SubtitleService;
 import org.wzx.cloud.util.Consts;
 
 @RequestMapping
@@ -16,10 +18,12 @@ public class MovieController {
 
     @Autowired
     private MovieService movieService;
+    @Autowired
+    private SubtitleService subtitleService;
 
 
     @GetMapping("/list")
-    public R listMovie(MovieDO query, @RequestParam(defaultValue = "1",value = "current",required = false) int current, @RequestParam(value = "pages",defaultValue = "10",required = false) int pagesize) {
+    public R listMovie(MovieDO query, @RequestParam(defaultValue = "1",value = "current",required = false) int current, @RequestParam(value = "pagesize",defaultValue = "10",required = false) int pagesize) {
         if (query.getTypeid() == null) {
             return R.error("请选择查询的种类");
         } else if (query.getTypeid() == Consts.MOVIE_EPISODES && query.getId() == null && query.getParentid() == null) {
@@ -56,4 +60,9 @@ public class MovieController {
 //        return R.ok(list);
 //    }
 
+    @RequestMapping("listSubtitle")
+    public R listSubtitle(String movieid, @RequestParam(defaultValue = "1",value = "current",required = false) int current, @RequestParam(value = "pagesize",defaultValue = "10",required = false) int pagesize){
+        IPage<SubtitleVO> iPage = subtitleService.listSubtitleVO(new Page(current, pagesize),movieid);
+        return R.ok(iPage);
+    }
 }
