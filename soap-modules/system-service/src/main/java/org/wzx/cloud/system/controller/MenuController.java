@@ -22,12 +22,12 @@ public class MenuController {
     private MenuService menuService;
 
     @GetMapping("/list")
-    public R listMenu(@RequestParam("parentid") String parentid) {
-        if (StringUtils.isBlank(parentid)) {
-            R.error("传入的parentid不能为空");
+    public R listMenu(@RequestParam("url") String url) {
+        if (StringUtils.isBlank(url)) {
+            R.error("传入参数错误");
         }
         try {
-            List<MenuDO> list = menuService.listMenu(parentid);
+            List<MenuDO> list = menuService.listMenu(url);
             return R.ok(list);
         } catch (Exception e) {
             e.printStackTrace();

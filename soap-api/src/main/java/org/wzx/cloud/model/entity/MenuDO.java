@@ -19,6 +19,4 @@ public class MenuDO implements Serializable {
     private String descrition;
     private Integer typeid;
     private Integer seq;
-    private String parenturl;
-    private String parentname;
 }
